@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //箭头函数：写法不同
+        function test(a, b){
+            return a+b;
+        }
+
+        var test = (a,b)=>a+b;
+        var test = (a,b)=>{
+            return a+b;
+        }
+
+
+        //箭头函数是否可以替换已有的普通函数？
+        // 不行：this指向不一样。箭头函数：函数在哪里声明就执行哪里。普通函数：谁调用this执行谁
+        var obj = {
+            name: 'zhangsan',
+            // say: function(){
+            //     console.log(this.name);
+            // }
+            // say(){
+            //     console.log(this.name);
+            // }
+            say: ()=>{
+                console.log(this);
+            },
+
+            arr: ['item1', 'item2', 'item3']
+        }
+        obj.say();
+
+
+        
+        var arr2 = [];
+        
+        // arr.map(item=>{
+        //     this.arr2.push('new'+item);
+        // })
+        obj.arr.map(function(item){
+            this.arr2.push('new'+item);
+        });
+        console.log(arr2);
+
+        // var that = this;
+
+
+
+        // 剩余参数rest, 必须放在函数的参数列表的最后一位
+
+        // function func(a,b,c){
+        //     console.log(a,b,c);
+        // }
+        function func(name, age, ...rest){
+
+            console.log(name);
+            console.log(rest);
+            console.log(arguments);
+
+        }
+
+        func('zhangsan', 1,2,3);
+
+
+        //函数参数设置默认值，有默认值的参数放在最后面
+        function func(a=20, b, c=10){
+            
+            console.log(a, b, c);
+
+        }
+        func(1);
+
+        //函数的可选参数
+        function func(a, b, c?){
+            if(c){
+                
+            }
+            console.log(a, b, c);
+        }
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+    </script>
+</body>
+</html>

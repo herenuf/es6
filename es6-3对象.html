@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var obj = {
+        name1: 'name1',
+        name2: 'name2',
+        name3: 'name3',
+        name4: 'name4',
+        name5: 'name5'
+    }    
+    //对象解构:对象解构，按照属性名字（key）进行解构
+    // var {name5, name2, name1 as name6} = obj;//浏览器还不支持as关键字
+    var {name5, name2, name1} = obj;
+    //===>> var name1 = obj['name1'], name2 = obj['name2'], name3 = obj['name3']
+    
+    //as关键字：功能：将name1变量改名为name6
+    // 改为名字后，使用name1报错，name1 is not defined
+
+    console.log(name5, name2);    
+    
+
+    //对象的扩展运算符
+    // console.log(...obj);
+    var obj2 = {
+        age1: 'age1',
+        age2: 'age2',
+        age3: 'age3',
+        ...obj
+    }
+
+    console.log(obj2);
+
+
+    var person = {
+        name: '张三',
+        age: 40
+    }
+    var person2 = {...person};
+    person2.name = 'lisi';
+    console.log(person, person2);
+
+    console.log('----------------------------');
+    // 对象新增方法
+    var person = {
+        name: '张三',
+        age: 40
+    }
+    var person1 = {
+        name: '李四',
+        height: 180
+    }
+    var person2 = {};
+    //接收多个对象作为参数，第一个对象是目标对象，剩余的对象是资源对象
+    Object.assign(person2, person1, person);
+
+    person2.age = 50;
+    console.log(person2, person, person1);
+
+
+    //得到对象的所有key或者所有的value
+    console.log(Object.keys(obj));
+    console.log(Object.values(obj));
+
+    console.log('----------------------------');
+    // 对象的简写方式
+    var a = 123;
+    var str = '456';
+    var func = function(){
+        alert(789);
+    }
+
+    var obj = {
+        a,//a:a
+        str,//str: str
+        func, //func:func
+        // func2: function(){
+        //     alert(10);
+        // }
+        func2(){
+            alert(10);
+        }
+    }
+    obj.func2();
+    console.log(obj);
+
+
+
+
+    </script>
+</body>
+</html>

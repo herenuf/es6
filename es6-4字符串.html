@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 模板字符串
+    var str = '上面代码中，class是字符串。数，\
+    前面需要加上星号。';
+    var num = 10;
+    console.log(str+num+str+"fdasdasd");
+
+
+    var result = `${str}${num}${str}fdasdasd`;
+    var result = `${str}${num*100-99+56}${str}
+    fdasda
+    sd`;
+    console.log(result);
+
+    //字符串新增的方法
+    var str = 'qf-qianfengjiaoyu';
+    //判断字符串是否拥有相同的前缀
+    var result = str.startsWith('qf*');
+    console.log(result);  
+
+    //判断字符串是否拥有相同的前后缀
+    var result = str.endsWith('jiaoyi');
+    console.log(result);    
+    </script>
+</body>
+</html>

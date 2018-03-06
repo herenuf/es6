@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    //  数组解构
+    //从数组中提取值，数组按照数组的顺序解构。
+    var arr = [1,2,[7, 8,[11, 12], 9], 3, [4,5]];
+    
+
+    var [a, b] = arr;
+    //==>>  var a = arr[0], b = arr[1];
+    console.log(a, b);
+
+    var [a,b,[c,d,e, h],f,g] = arr;
+    console.log(a);//1
+    console.log(b);//2
+    console.log(c);//7
+    console.log(d);//8
+    console.log(e);//[11, 12]
+    console.log(f);//3
+    console.log(g);//[4,5]
+    console.log(h);//[4,5]
+
+    var [a, b, [c,d,[e,f]]] = arr;
+    console.log(f);
+
+
+    console.log('-----------------------------------');
+    // 数组的扩展运算符
+    // console.log(arr);
+    // console.log(arr[0], arr[1], arr[2], arr[3], arr[4]);
+    // console.log(...arr);
+    // console.log(1,2,[7, 8,[11, 12], 9], 3, [4,5]);
+
+    //在数组前写:'...',相当于将数组的声明的[]去除了
+    //用法1：合并数组
+    // var arr1 = [1,2,3];
+    // var arr2 = [4,5,6];
+    // var arr3 = [...arr1, ...arr2];
+    // console.log(arr3);
+
+    
+    var arr1 = [1,2,3];
+    var arr2 = arr1;//对arr1进行浅拷贝
+    var arr2 = [...arr1];//对arr1进行深拷贝
+    arr1[2] = 'abcde';
+    console.log(arr1);
+    console.log(arr2);
+
+
+    
+    console.log('-----------------------------------');
+    // 数组新增方法
+
+    var arr = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'];
+    // 对数组执行遍历
+    // for(var index in arr){//for-in数组对象都可以使用该方法执行遍历
+    //     console.log('index:'+index);
+    //     console.log('value:'+arr[index]);
+    // }
+
+    // var obj = {
+    //     name: 'zhangsan'
+    // }  
+    // for(var val of arr){//for-of只能对数组执行遍历，不能够对对象执行遍历
+    //     console.log("val:"+val);
+    // }
+
+    //map方法
+    var result = arr.map(function(item, index){
+        console.log('item:'+item);
+        console.log('index:'+index);
+        return 'new '+item;
+    })
+    console.log(result);
+
+    console.log('-----------------------------------');
+    //filter 方法
+    var result = arr.filter(function(item, index){
+        console.log('item:'+item);
+        console.log('index:'+index);
+        //返回boolean值，为true表示该item继续保留数组中，为false将这个item从数组中过滤掉
+        return index<3;
+    })
+    console.log(result);
+
+    //find查找方法
+    var result = arr.find(function(item, index){
+        return index == 2;
+    })
+    var result = arr.findIndex(function(item, index){
+        console.log('*****');
+        return index > 2;
+    })
+    console.log(result);
+
+
+
+
+
+        
+        
+    </script>
+</body>
+</html>

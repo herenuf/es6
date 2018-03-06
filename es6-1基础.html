@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <script>
+    // 常量声明方式, 不可以变化的值
+    const name = '张三';
+    // name = '李四';
+
+    const obj = {
+        name: 'zhangsan',
+        age: 40
+    }
+    obj.name = '李四';
+
+    // obj = {
+
+    // }
+    console.log(obj);
+
+    //变量的声明方式，let拥有块级作用域 var没有， let不可以重复声明同一个变量
+    let a = 123;
+    {
+        let a = 456;
+        console.log(a);
+    }
+    console.log(a);
+    
+    var lis = document.querySelectorAll('li');
+    for(let i = 0; i < lis.length; i++){
+        lis[i].onclick = function(){
+            console.log(i);
+        }
+    }
+
+    // for(){}
+    // if(){}
+    //三层作用域
+    let num = 1;
+    for(let num = 0; num < 5; num++){
+        let num = 3;
+        console.log(num);
+    }
+
+
+
+
+    
+        
+    </script>
+</body>
+</html>
